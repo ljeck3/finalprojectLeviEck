@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body>
+<h1>Events</h1>
+{% if latest_event_list %}
+    <ul>
+    {% for event in latest_event_list %}
+        <li><a href="/rsvp/{{ event.id }}/">{{ event.event_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
+</body>
+</html>
