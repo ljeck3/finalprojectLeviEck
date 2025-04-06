@@ -19,7 +19,7 @@ def detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     return render(request, "rsvp/detail.html", {"event": event})
 
-def vote(request, event_id):
+def respond(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == "POST":
         name = request.POST.get("name")
