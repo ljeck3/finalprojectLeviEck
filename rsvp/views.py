@@ -1,6 +1,7 @@
-from django.http import HttpResponse
-from django.http import Http404
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+
 
 from .models import Event
 from .models import Guest
@@ -16,7 +17,10 @@ def index(request):
 
 def detail(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
+    return render(request, "rsvp/detail.html", {"event": event})
 
+def vote(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
     if request.method == "POST":
         name = request.POST.get("name")
         email = request.POST.get("email")
@@ -29,11 +33,17 @@ def detail(request, event_id):
 
             if guest.has_rsvped:
                 message = "You have already RSVP'd for this event."
+                print(message)
             else:
                 guest.has_rsvped = True
                 guest.save()
                 message = "Thank you for RSVPing!"
+                print(message)
         except Guest.DoesNotExist:
-            message = "Sorry, you're not on the guest list for this event."
+            message = "Could not find your name on the list. Please check spelling, or contact if you believe there is an error."
+            print(message)
+    return HttpResponseRedirect(reverse("rsvp:results", args=(event_id,)))
 
-    return render(request, "rsvp/detail.html", {"event": event})
+def results(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    return render(request, "rsvp/results.html", {"event": event})
