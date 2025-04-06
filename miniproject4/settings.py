@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'members.apps.MembersConfig',
     'rsvp.apps.RsvpConfig',
     'django.contrib.admin',
     'django.contrib.auth',

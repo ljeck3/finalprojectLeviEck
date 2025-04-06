@@ -22,4 +22,6 @@ urlpatterns = [
     path('', rsvp_views.home, name='home'),
     path("rsvp/", include("rsvp.urls")),
     path("admin/", admin.site.urls),
+    path('members/', include('members.urls')),
+    path('members/', include('django.contrib.auth.urls')),
 ]
