@@ -4,9 +4,7 @@ from . import views
 
 app_name = 'rsvp'
 urlpatterns = [
-    # ex: /polls/
     path("", views.index, name="index"),
-    # ex: /polls/5/
     path("<int:event_id>/", views.detail, name="detail"),
     path("<int:event_id>/vote/", views.respond, name="respond"),
     path("<int:event_id>/results/", views.results, name="results")

@@ -10,6 +10,8 @@ from .models import Guest
 #def index(request):
 #    return HttpResponse("Hello, world. You're at the rsvp index.")
 
+def home(request):
+    return render(request, "home.html")
 def index(request):
     latest_event_list = Event.objects.order_by("-pub_date")[:5]
     context = {"latest_event_list": latest_event_list}
