@@ -42,7 +42,8 @@ def respond(request, event_id):
         except Guest.DoesNotExist:
             message = "Could not find your name on the list. Please check spelling, or contact if you believe there is an error."
             print(message)
-    return HttpResponseRedirect(reverse("rsvp:results", args=(event_id,)))
+    #return HttpResponseRedirect(reverse("rsvp:results", args=(event_id,)))
+    return render(request, "rsvp/results.html", {"message": message})
 
 def results(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
