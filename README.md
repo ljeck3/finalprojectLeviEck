@@ -29,7 +29,7 @@ If changes are made to the models, run this command first to create the SQL entr
 ```
 python manage.py makemigrations
 ``````
-Apply migrations (initialize the database:
+Apply migrations (initialize the database):
 ```
 python manage.py migrate
 ``````
