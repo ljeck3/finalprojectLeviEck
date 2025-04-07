@@ -17,3 +17,7 @@ def login_user(request):
             return render(request, 'authenticate/login.html')
     else:
         return render(request, 'authenticate/login.html')
+
+def logout_user(request):
+    logout(request)  # This logs the user out
+    return redirect('home')

@@ -8,6 +8,7 @@
 <h1>Home</h1>
 <p><a href="/members/login_user/">Login</a></p>
 <p><a href="/rsvp/">View Available Events</a></p>
+<p><a href="{% url 'logout' %}">Logout</a></p>
 {% if messages %}
     <ul>
         {% for message in messages %}

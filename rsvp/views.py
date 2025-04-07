@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -12,6 +13,7 @@ from .models import Guest
 
 def home(request):
     return render(request, "home.html")
+@login_required(login_url="/members/login_user/")
 def index(request):
     latest_event_list = Event.objects.order_by("-pub_date")[:5]
     context = {"latest_event_list": latest_event_list}
