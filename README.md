@@ -15,7 +15,7 @@ RSVP to events!
 
 ## Description
 
-This project builds off of the Django Polls Tutorial. Admins can create events through Django Admin site, and users can RSVP to those events. 
+This project builds off of the Django Polls Tutorial. Admins can create events through the Django Admin site, and users can RSVP to those events. 
 
 ## Getting Started
 
@@ -25,7 +25,11 @@ pip install -r requirements.txt
 ```
 
 ### Executing program
-Initialize the database:
+If changes are made to the models, run this command first to create the SQL entries that need to go into the database:
+```
+python manage.py makemigrations
+``````
+Apply migrations (initialize the database:
 ```
 python manage.py migrate
 ``````
@@ -37,6 +41,7 @@ Run the development server:
 ```
 python manage.py runserver
 ``````
+
 
 ### Creating events and adding guests
 
