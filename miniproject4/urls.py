@@ -19,7 +19,7 @@ from django.urls import include, path
 from rsvp import views as rsvp_views  #imports views.py from app
 
 urlpatterns = [
-    path('', rsvp_views.home, name='home'),
+    path('', rsvp_views.home, name='home'), #points to home page
     path("rsvp/", include("rsvp.urls")),
     path("admin/", admin.site.urls),
     path('members/', include('members.urls')),
