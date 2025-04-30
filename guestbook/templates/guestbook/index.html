@@ -16,10 +16,10 @@ Mini Project 4
 </head>
 <body>
 <h1>Messages</h1>
-{% if latest_message_list %}
+{% if latest_memo_list %}
    <ul>
-{% for message in latest_message_list %}
-    <li><strong>{{ message.name }}</strong> said: "{{ message.content }}" on {{ message.pub_date|date:"M d, Y H:i" }}</li>
+{% for memo in latest_memo_list %}
+    <li><strong>{{ memo.name }}</strong> said: "{{ memo.content }}" on {{ memo.pub_date|date:"M d, Y H:i" }}</li>
 {% empty %}
     <li>No messages yet.</li>
 {% endfor %}

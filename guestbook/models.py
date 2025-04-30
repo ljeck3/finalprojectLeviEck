@@ -3,7 +3,7 @@ import datetime
 from django.utils import timezone
 from django.contrib import admin
 
-class Message(models.Model):
+class Memo(models.Model):
     name = models.CharField(max_length=200)
     content = models.TextField()
     pub_date = models.DateTimeField("date published")

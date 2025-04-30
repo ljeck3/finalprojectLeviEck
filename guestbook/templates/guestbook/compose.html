@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compose</title>
+</head>
+<body>
+<form method="POST">
+  {% csrf_token %}
+  <label for="name">Name/Group:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="content">Share a message with us!:</label>
+  <textarea id="content" name="content" required="required" rows="4" cols="30"></textarea>
+
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>
