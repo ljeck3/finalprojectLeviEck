@@ -1,34 +1,50 @@
-<!--
-INF601 - Advanced Programming in Python
-Assignment: Mini Project 4
-I,     Levi Eck    , affirm that the work submitted for this assignment is entirely my own. I have not engaged in any form of academic dishonesty, including but not limited to cheating, plagiarism, or the use of unauthorized materials. I have neither provided nor received unauthorized assistance and have accurately cited all sources in adherence to academic standards. I understand that failing to comply with this integrity statement may result in consequences, including disciplinary actions as determined by my course instructor and outlined in institutional policies. By signing this statement, I acknowledge my commitment to upholding the principles of academic integrity.
-
-INF601 - Advanced Programming in Python
-Levi Eck
-Mini Project 4
--->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang= "en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+	<title>Levi Eck – Home</title>
+	<meta charset="utf8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'rsvp/css/style.css' %}">
+
+	<style>
+        main {
+            height: 100vh; /* Sets the height to 100% of the viewport height */
+            width: 100%; /* Ensures it spans the full width */
+        }
+    </style>
 </head>
+
 <body>
-<h1>Django RSVP – Home</h1>
-{% if user.is_authenticated %}
-    <p><a href="{% url 'logout' %}">Logout</a></p>
-{% else %}
-    <p><a href="/members/login_user/">Login</a></p>
-    <p><a href="/members/register_user/">Register</a></p>
-{% endif %}
-<p><a href="/rsvp/">View Available Events</a></p>
-{% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+    <div id="wrapper">
+        <header>
+            <div id="login">
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="/members/login_user/">Login</a></li>
+                    <li><a href="/members/register_user/">Register</a></li>
+                {% endif %}
+            </div>
+
+            <div id="logobox">
+                <img src="{% static 'rsvp/images/logo.png' %}" alt="Logo" class="banner_pic">
+            </div>
+
+            <div id="navigation">
+                <ul>
+                    <li><a href="/guestbook">Guestbook</a></li><br>
+                    <li><a href="/rsvp">RSVP</a></li><br>
+                </ul>
+            </div>
+        </header>
+
+        <nav></nav>
+        <main></main>
+        <footer></footer>
+    </div>
 </body>
+
 </html>

@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Compose</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/guestbook/css/guestbook_style.css' %}">
 </head>
 <body>
-<form method="POST">
-  {% csrf_token %}
-  <label for="name">Name/Group:</label>
-  <input type="text" id="name" name="name" required>
+<h1>Compose a Message</h1>
+<div class="fillout">
+    <form method="POST">
+    {% csrf_token %}
+    <label for="name">Name/Group:</label>
+    <input type="text" id="name" name="name" required><br>
 
-  <label for="content">Share a message with us!:</label>
-  <textarea id="content" name="content" required="required" rows="4" cols="30"></textarea>
+    <label for="content">Share a message with us!:</label>
+    <textarea id="content" name="content" required="required" rows="4" cols="30"></textarea><br>
 
-  <button type="submit">Submit</button>
-</form>
+    <input type="submit" value="Submit">
+    </form>
+</div>
 </body>
 </html>

@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+#wrapper {}
+
+header {
+
+}
+
+#logobox {
+	height: auto;
+	width: auto;
+	text-align: center;
+}
+
+.banner_pic {
+	width: auto;
+	height: 120px;
+}
+	
+#navigation {
+	font-family: "Libre Baskerville", serif;
+	font-size: 150%;
+	font-weight: bold;
+	text-align: left;
+}
+	
+#navigation a {
+	text-decoration: none;
+}
+	
+#navigation ul {
+	display: flex;
+	list-style: none;
+	white-space: nowrap;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	gap: 2.5%;
+}
+
+#navigation a:link {
+	color: #000000;
+}
+
+#navigation a:visited {
+	color: #000000;
+}
+	
+#navigation a:hover {
+	color: #21409A;
+	transition: color .5s ease-out;
+}
+	
+main {
+	padding-bottom: 20px;
+	font-family: helvetica;
+}
+	
+#layout {
+	display: grid;
+	grid-template-columns: 40% 60%;
+    gap: 7px;
+    margin: 10px;
+    align-items: center;
+}
+	
+#layout h2 { 
+	background-color: #D3D3D3;
+	padding: 10px 10px 10px 10px;
+}
+	
+
+.video-grid iframe {
+  width: 100%;
+  max-width: 560px; /* or whatever max width you want */
+  height: 315px; /* standard 16:9 ratio */
+  border: none;
+}
+	
+footer {
+	background-color: #21409A;
+	color: #FFFFFF;
+	font-size: 85%;
+	text-align: center;
+	font-family: arial;
+	padding: 2em 2em 2em 2em;
+	}
+	
+footer a:link {
+ color: #FFFFFF;
+}
+
+footer a:visited {
+  color: #FFFFFF;
+}
+
+
+	
+
+	
+
+	
