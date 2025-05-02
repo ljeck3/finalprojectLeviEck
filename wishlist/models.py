@@ -6,18 +6,14 @@ I,     Levi Eck    , affirm that the work submitted for this assignment is entir
 
 ### INF601 - Advanced Programming in Python
 ### Levi Eck
-### Mini Project 4
+### Final Project
 
+from django.db import models
+import datetime
+from django.utils import timezone
 from django.contrib import admin
-from django.urls import include, path
-from rsvp import views as rsvp_views  #imports views.py from app
 
-urlpatterns = [
-    path('', rsvp_views.home, name='home'), #points to home page
-    path("rsvp/", include("rsvp.urls")),
-    path("admin/", admin.site.urls),
-    path('members/', include('members.urls')),
-    path('members/', include('django.contrib.auth.urls')),
-    path("guestbook/", include("guestbook.urls")),
-    path("wishlist/", include("wishlist.urls")),
-]
+
+class Gift(models.Model):
+    gift_item = models.CharField(max_length=200)
+    has_been_claimed = models.BooleanField(default=False)

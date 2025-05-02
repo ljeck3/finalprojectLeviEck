@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'members.apps.MembersConfig',
     'rsvp.apps.RsvpConfig',
     'guestbook.apps.GuestbookConfig',
+    'wishlist.apps.WishlistConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
