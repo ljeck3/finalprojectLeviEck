@@ -17,8 +17,8 @@ from .models import Gift
 
 @login_required(login_url="/members/login_user/")
 def index(request):
-    gift_items = Gift.objects#.order_by("-gift_item")[:5]
-    context = {"gift_items": gift_items}
+    gift_item_list = Gift.objects.all()#.order_by("-gift_item")[:5]
+    context = {"gift_item_list": gift_item_list}
     return render(request, "wishlist/index.html", context)
 
 def detail(request, event_id):

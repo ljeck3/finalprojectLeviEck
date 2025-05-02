@@ -14,6 +14,8 @@ from django.utils import timezone
 from django.contrib import admin
 
 
+
 class Gift(models.Model):
     gift_item = models.CharField(max_length=200)
+    gift_link = models.CharField(max_length=1000)
     has_been_claimed = models.BooleanField(default=False)

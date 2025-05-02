@@ -16,6 +16,14 @@ Mini Project 4
 </head>
 <body>
 <h1>Registry</h1>
-
+{% if gift_item_list %}
+    <ul>
+    {% for gift in gift_item_list %}
+       <li><a href="{% url 'wishlist:detail' gift.id %}">{{ gift.gift_item }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No registry items are available.</p>
+{% endif %}
 </body>
 </html>
