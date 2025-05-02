@@ -1,21 +1,21 @@
 <!--
 INF601 - Advanced Programming in Python
-Assignment: Mini Project 4
+Assignment: Final Project
 I,     Levi Eck    , affirm that the work submitted for this assignment is entirely my own. I have not engaged in any form of academic dishonesty, including but not limited to cheating, plagiarism, or the use of unauthorized materials. I have neither provided nor received unauthorized assistance and have accurately cited all sources in adherence to academic standards. I understand that failing to comply with this integrity statement may result in consequences, including disciplinary actions as determined by my course instructor and outlined in institutional policies. By signing this statement, I acknowledge my commitment to upholding the principles of academic integrity.
 -->
 
 ### INF601 - Advanced Programming in Python
 ### Levi Eck
-### Mini Project 4
+### Final Project
 
 
-# Django RSVP Website
+# Django Wedding Website
 
-RSVP to events!
+
 
 ## Description
 
-This project builds off of the Django Polls Tutorial. Admins can create events through the Django Admin site, and users can RSVP to those events. 
+This project uses Django to provide many features that would appear on a wedding website. This includes the ability to RSVP, view and write on an electronic guestbook, and view the registry. It also builds upon some work from my Miniproject 4.
 
 ## Getting Started
 
@@ -58,4 +58,3 @@ Inspiration, code snippets, etc.
 * [Django Polls Tutorial](https://docs.djangoproject.com/en/4.2/intro/)
 * [Codemy](https://www.youtube.com/watch?v=CTrVDi3tt8o)
 * [ChatGPT troubleshooting](https://chatgpt.com/share/67f340fe-65f4-8001-bab6-2d183eb4e2eb)
-* [ChatGPT Creating login system](https://chatgpt.com/share/67f340e7-63b0-8001-841c-76a623fea61f)
