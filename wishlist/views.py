@@ -9,7 +9,7 @@ I,     Levi Eck    , affirm that the work submitted for this assignment is entir
 ### Final Project
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 
 
 
@@ -21,35 +21,21 @@ def index(request):
     context = {"gift_item_list": gift_item_list}
     return render(request, "wishlist/index.html", context)
 
-def detail(request, event_id):
-    event = get_object_or_404(Event, pk=event_id)
-    return render(request, "rsvp/detail.html", {"event": event})
+def detail(request, gift_id):
+    gift = get_object_or_404(Gift, pk=gift_id)
+    return render(request, "wishlist/detail.html", {"gift": gift})
 
-def respond(request, event_id):
-    event = get_object_or_404(Event, pk=event_id)
-    if request.method == "POST":
-        name = request.POST.get("name")
-        email = request.POST.get("email")
+def respond(request, gift_id):
+    if request.method == 'POST':
+        claim = 'claim' in request.POST
 
-        #Debug to see if name and email go through
-        print(name, email)
+        gift = get_object_or_404(Gift, id=gift_id)
+        gift.has_been_claimed = claim
+        gift.save()
 
-        try:
-            guest = Guest.objects.get(event=event, name=name, email=email)
-
-            if guest.has_rsvped:
-                message = "You have already RSVP'd for this event."
-                print(message)
-            else:
-                guest.has_rsvped = True
-                guest.save()
-                message = "Thank you for RSVPing!"
-                print(message)
-        except Guest.DoesNotExist:
-            message = "Could not find your name on the list. Please check spelling, or contact if you believe there is an error."
-            print(message)
-    #return HttpResponseRedirect(reverse("rsvp:results", args=(event_id,)))
-    return render(request, "rsvp/results.html", {"message": message})
+        return redirect('wishlist:index')
+    else:
+        return redirect('wishlist:index')
 
 def results(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
