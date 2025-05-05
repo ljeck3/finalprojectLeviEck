@@ -69,14 +69,6 @@ main {
 	padding: 10px 10px 10px 10px;
 }
 	
-
-.video-grid iframe {
-  width: 100%;
-  max-width: 560px; /* or whatever max width you want */
-  height: 315px; /* standard 16:9 ratio */
-  border: none;
-}
-	
 footer {
 	background-color: #21409A;
 	color: #FFFFFF;

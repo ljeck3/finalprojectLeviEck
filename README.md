@@ -43,7 +43,7 @@ python manage.py runserver
 ``````
 
 
-### Create events, guests, and registry items throught the admin page:
+### Create events, guests, and registry items through the admin page:
 
 Once server is running, go to http://127.0.0.1:8000/admin/. There are tabs for each item.
 

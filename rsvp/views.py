@@ -27,6 +27,8 @@ async def get_weather():
 
 
 def home(request):
+
+    #PYTHON WEATHER API
     # Handle Windows event loop compatibility
     if os.name == 'nt':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -53,7 +55,7 @@ def respond(request, event_id):
         email = request.POST.get("email")
 
         #Debug to see if name and email go through
-        print(name, email)
+        #print(name, email)
 
         try:
             guest = Guest.objects.get(event=event, name=name, email=email)
@@ -67,9 +69,8 @@ def respond(request, event_id):
                 message = "Thank you for RSVPing!"
                 print(message)
         except Guest.DoesNotExist:
-            message = "Could not find your name on the list. Please check spelling, or contact if you believe there is an error."
+            message = "Could not find your name on the list. Please check spelling, or contact website owner if you believe there is an error."
             print(message)
-    #return HttpResponseRedirect(reverse("rsvp:results", args=(event_id,)))
     return render(request, "rsvp/results.html", {"message": message})
 
 def results(request, event_id):
