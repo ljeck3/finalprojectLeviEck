@@ -19,6 +19,11 @@
 	    list-style-type: none;
         text-decoration: none;
         }
+
+        h1 {
+	    text-align: center;
+	    font-family: "Libre Baskerville", serif;
+        }
     </style>
 </head>
 
@@ -29,12 +34,15 @@
                 <ul>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'logout' %}">Logout</a></li>
+                        <p>Welcome, {{ request.user.username }}!</p>
                     {% else %}
                         <li><a href="/members/login_user/">Login</a></li>
                         <li><a href="/members/register_user/">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
+            <h1>Our Wedding Day</h1>
+
 
             <div id="logobox">
                 <img src="{% static 'rsvp/images/flowers.jpg' %}" alt="Logo" class="banner_pic">

@@ -5,8 +5,6 @@ h1 {
 	font-family: "Libre Baskerville", serif;
 }
 
-
-
 form {
 	width: 400px;
 	margin: 0 auto;
@@ -43,4 +41,8 @@ input[type="submit"]:hover {
 .fillout {
 	display: flex;
 	justify-content: center;
+}
+
+#feed {
+	text-align: center;
 }
