@@ -43,9 +43,9 @@ python manage.py runserver
 ``````
 
 
-### Creating events and adding guests
+### Create events, guests, and registry items throught the admin page:
 
-Once server is running, go to http://127.0.0.1:8000/admin/. There is an Events tab and a Guests tab. 
+Once server is running, go to http://127.0.0.1:8000/admin/. There are tabs for each item.
 
 ## Authors
 
@@ -58,3 +58,4 @@ Inspiration, code snippets, etc.
 * [Django Polls Tutorial](https://docs.djangoproject.com/en/4.2/intro/)
 * [Codemy](https://www.youtube.com/watch?v=CTrVDi3tt8o)
 * [ChatGPT troubleshooting](https://chatgpt.com/share/67f340fe-65f4-8001-bab6-2d183eb4e2eb)
+* [ChatGPT Python Weather Setup](https://chatgpt.com/share/68181f26-4cd0-8001-a427-71df28292e65)

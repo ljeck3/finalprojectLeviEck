@@ -15,8 +15,27 @@ from django.shortcuts import get_object_or_404, render
 from .models import Event
 from .models import Guest
 
+import python_weather
+import asyncio
+import os
+
+
+async def get_weather():
+    async with python_weather.Client(unit=python_weather.IMPERIAL) as client:
+        weather = await client.get('New York')
+        return weather.temperature
+
+
 def home(request):
-    return render(request, "home.html")
+    # Handle Windows event loop compatibility
+    if os.name == 'nt':
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+    # Run the async function and get the result
+    temperature = asyncio.run(get_weather())
+
+
+    return render(request, 'home.html', {'temperature': temperature})
 @login_required(login_url="/members/login_user/")
 def index(request):
     latest_event_list = Event.objects.order_by("-pub_date")[:5]
