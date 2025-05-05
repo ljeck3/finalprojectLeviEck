@@ -1,34 +1,34 @@
 <!--
 INF601 - Advanced Programming in Python
-Assignment: Final Project
+Assignment: Mini Project 4
 I,     Levi Eck    , affirm that the work submitted for this assignment is entirely my own. I have not engaged in any form of academic dishonesty, including but not limited to cheating, plagiarism, or the use of unauthorized materials. I have neither provided nor received unauthorized assistance and have accurately cited all sources in adherence to academic standards. I understand that failing to comply with this integrity statement may result in consequences, including disciplinary actions as determined by my course instructor and outlined in institutional policies. By signing this statement, I acknowledge my commitment to upholding the principles of academic integrity.
 
 INF601 - Advanced Programming in Python
 Levi Eck
-Final Project
+Mini Project 4
 -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Compose</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static '/guestbook/css/guestbook_style.css' %}">
+    <title>Home</title>
 </head>
 <body>
-<h1>Compose a Message</h1>
-
-<div class="fillout">
-    <form method="POST">
-    {% csrf_token %}
-    <input type="hidden" id="name" name="name" value="{{ request.user.username }}" required><br>
-
-    <label for="content">Share a message with us!</label>
-    <textarea id="content" name="content" required="required" rows="4" cols="30"></textarea><br>
-
-    <input type="submit" value="Submit">
-    </form>
-</div>
+<h1>Django RSVP – Home</h1>
+{% if user.is_authenticated %}
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+{% else %}
+    <p><a href="/members/login_user/">Login</a></p>
+    <p><a href="/members/register_user/">Register</a></p>
+{% endif %}
+<p><a href="/rsvp/">View Available Events</a></p>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 </body>
 </html>
