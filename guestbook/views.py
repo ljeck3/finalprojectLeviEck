@@ -10,21 +10,21 @@ I,     Levi Eck    , affirm that the work submitted for this assignment is entir
 
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.utils import timezone
 
 from .models import Memo
 
 @login_required(login_url="/members/login_user/")
 def index(request):
-    latest_memo_list = Memo.objects.order_by("-pub_date")[:5]
+    latest_memo_list = Memo.objects.order_by("-pub_date")[:15]
     context = {"latest_memo_list": latest_memo_list}
     return render(request, "guestbook/index.html", context)
 
+#CURRENTLY UNUSED. LEFT IN FOR FUTURE DEVELOPMENT.
 def detail(request, memo_id):
     memo = get_object_or_404(Memo, pk=memo_id)
     return render(request, "guestbook/detail.html", {"memo": memo})
-
 
 
 def compose(request):
@@ -35,8 +35,6 @@ def compose(request):
         memo = Memo.objects.create(name=name, content=content, pub_date=timezone.now())
 
         memo.save()
-        return render(request, 'guestbook/compose.html')
+        return redirect('guestbook:index')
     else:
         return render(request, 'guestbook/compose.html')
-        #message = "Thank you for RSVPing!"
-        #return render(request, "guestbook/results.html", {"message": message})
